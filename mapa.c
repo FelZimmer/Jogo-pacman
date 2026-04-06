@@ -2,6 +2,24 @@
 #include <stdlib.h>
 #include "mapa.h"
 
+void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestibo) { 
+	char personagem = m->matriz[xorigem][yorigem];
+	m->matriz[xdestino][ydestibo] = personagem;
+	m->matriz[xorigem][yorigem] = '.';
+	
+}
+
+int ehvalida(MAPA* m, int x, int y) {
+	if(x >= m->linhas ) return 0;
+	if (y >= m->colunas) return 0;
+
+	return 1;
+}
+
+int ehvazia(MAPA* m, int x, int y) {
+	return m->matriz[x][y] == '.';
+}
+
 void lemapa(MAPA* m) {
 	FILE* f;
 	f = fopen("mapa.txt", "r");
