@@ -1,3 +1,2 @@
-void liberamapa();
-void lemapa();
-void alocampa();
+int acabou();
+void move(char direcao);
