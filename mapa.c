@@ -2,10 +2,24 @@
 #include <stdlib.h>
 #include "mapa.h"
 
-void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestibo) { 
+
+void copiamapa(MAPA* destino, MAPA* origem) {
+	destino->linhas = origem->linhas;
+	destino->colunas = origem->colunas;
+	alocamapa(destino);
+
+	for(int i = 0; i < origem->linhas; i++) {
+		for(int j = 0; j < origem->colunas; j++) {
+			destino->matriz[i][j] = origem->matriz[i][j];
+		}
+	}
+}
+
+
+void andanomapa(MAPA* m, int xorigem, int yorigem, int xdestino, int ydestino) { 
 	char personagem = m->matriz[xorigem][yorigem];
-	m->matriz[xdestino][ydestibo] = personagem;
-	m->matriz[xorigem][yorigem] = '.';
+	m->matriz[xdestino][ydestino] = personagem;
+	m->matriz[xorigem][yorigem] = VAZIO;
 	
 }
 
@@ -17,7 +31,7 @@ int ehvalida(MAPA* m, int x, int y) {
 }
 
 int ehvazia(MAPA* m, int x, int y) {
-	return m->matriz[x][y] == '.';
+	return m->matriz[x][y] == VAZIO;
 }
 
 void lemapa(MAPA* m) {
