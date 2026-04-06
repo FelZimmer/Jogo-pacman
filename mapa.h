@@ -34,4 +34,6 @@ void andanomapa(MAPA* m, int xorigem, int yorigem,
 
 void copiamapa(MAPA* destino, MAPA* origem);
 
-int podeandar(MAPA* m, int x, int y);
+int podeandar(MAPA* m,char personagem, int x, int y);
+int ehpersonagem(MAPA* m, char personagem, int x, int y);
+int ehparede(MAPA* m, int x, int y);
